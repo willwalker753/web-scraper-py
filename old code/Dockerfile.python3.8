@@ -1,0 +1,23 @@
+# # Fetch python3.8 docker base image from AWS ECR
+# FROM public.ecr.aws/lambda/python:3.8
+# COPY app.py ./
+# # You can overwrite command in `serverless.yml` template
+# CMD ["app.handler"]
+FROM scratch
+ADD x86_64/189d0a02e2bfa73dd681cebc92d777032d90df7eb250cd05060ceb5e194cf888.tar.xz /
+ADD x86_64/1cbba7d1536de38b1594cddbe5ab35c33468ad6d157d548d81ae77e602bed88d.tar.xz /
+ADD x86_64/367aa9aab561c057830c8cc43dd7c2076ed3c42feea6796a2ddb82084c12c9b5.tar.xz /
+ADD x86_64/4317d495ebf8d8ca5c4f39f1b09ac1f14481f6d903450a2ffc5baa978091af47.tar.xz /
+ADD x86_64/4d5606e164d14a75eff74ec35fe24a72e081029ca29ed755f02e81830b18a03c.tar.xz /
+ADD x86_64/5b6276459913907e83fe70883c0373462d7b0c28755e122bebb410c4767e48a6.tar.xz /
+
+ENV LANG=en_US.UTF-8
+ENV TZ=:/etc/localtime
+ENV PATH=/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin
+ENV LD_LIBRARY_PATH=/var/lang/lib:/lib64:/usr/lib64:/var/runtime:/var/runtime/lib:/var/task:/var/task/lib:/opt/lib
+ENV LAMBDA_TASK_ROOT=/var/task
+ENV LAMBDA_RUNTIME_DIR=/var/runtime
+
+WORKDIR /var/task
+
+ENTRYPOINT ["/lambda-entrypoint.sh"]

@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - "8000:5000"
+    volumes: 
+      - ./source:/code
+  redis:
+    image: "redis:alpine"
