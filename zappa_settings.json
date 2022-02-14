@@ -2,9 +2,8 @@
     "web-scraper-api": {
         "app_function": "src.app.app",
         "profile_name": "default",
-        "project_name": "web-scraper-api",
+        "project_name": "prod",
         "log_level": "INFO",
-        "s3_bucket": "web-scraper-bucket-12341234123412343gverbarbeabrea",
         "environment_variables": {
             "EXAMPLE_ENV_VAR": "prod"
         },

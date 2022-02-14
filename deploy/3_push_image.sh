@@ -1,6 +1,10 @@
+#!/bin/bash
 
+image_name = $0
+ecr_uri_base = $0
 
-docker tag web-scraper-api:latest 282742299657.dkr.ecr.us-east-1.amazonaws.com/web-scraper-api:latest
-docker push 282742299657.dkr.ecr.us-east-1.amazonaws.com/web-scraper-api:latest  
+echo "Tagging $image_name:latest as $ecr_uri_base/$image_name:latest"
+docker tag $image_name:latest $ecr_uri_base/$image_name:latest
 
-zappa deploy web-scraper-api -d 282742299657.dkr.ecr.us-east-1.amazonaws.com/web-scraper-api:latest
+echo "Pushing $ecr_uri_base/$image_name:latest to ECR"
+docker push $ecr_uri_base/$image_name:latest

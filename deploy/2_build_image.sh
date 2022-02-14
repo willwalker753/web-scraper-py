@@ -1,7 +1,6 @@
-# startDir=$PWD
-# cd $SCRIPTDIR
-# cd ..
-# cd $startDir
-zappa save-python-settings-file web-scraper-api -o zappa_settings.py
+#!/bin/bash
 
-docker build -t web-scraper-api:latest -f Dockerfile.lambda . 
+image_name = $0
+
+echo "Building image tagged as $image_name:latest"
+docker build -t $image_name:latest -f Dockerfile.deploy . 

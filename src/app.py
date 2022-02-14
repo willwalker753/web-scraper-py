@@ -11,5 +11,10 @@ def index():
 def asdf():
     return jsonify(status=200, message='asdf')
 
-# def lambda_handler(event, context):
-#     return awsgi.response(app, event, context, base64_content_types={"image/png"})
+@app.route('/something')
+def something():
+    return jsonify(status=200, message='something')
+
+@app.route('/newnew')
+def newnew():
+    return jsonify(status=200, message='newnew')
